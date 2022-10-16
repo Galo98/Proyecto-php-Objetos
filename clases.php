@@ -67,9 +67,11 @@
 
         public function darDeAlta(){
             $mensaje = "";
-            $sql = "insert into clientes (nroCliente,nombre,apellido,dni,direccion,telefono) values ('$this->nroIdentificador','$this->nombre','$this->apellido',$this->dni,'$this->direccion'.'$this->telefono')";
-            // mysqli_query(conectarBD(),$sql);
-            if (mysqli_affected_rows(conectarBD()) > 0){
+            $con = conectarBD();
+            $sql = "insert into clientes (nombre,apellido,dni,direccion,telefono) values ('$this->nombre','$this->apellido',$this->dni,'$this->direccion',$this->telefono)";
+            mysqli_query($con,$sql);
+
+            if (mysqli_affected_rows($con)>0){
                 $mensaje = "se han guardado los registros";
             }else{
                 $mensaje = "no se guardaron los registros";
