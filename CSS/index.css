@@ -1,4 +1,20 @@
+:root{
+
+    --celeste100: #8ecae6;
+    --celeste200: #219ebc;
+    --celeste300 : #023047;
+    --naranja100: #ffb703;
+    --naranja200: #fb8500;
+
+}
+
+
 .linkT{
-    color: black;
+    color: var(--naranja200);
     text-decoration: none;
+}
+
+body{
+    background-color: var(--celeste300);
+    color: var(--naranja100);
 }
