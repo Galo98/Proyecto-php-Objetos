@@ -6,7 +6,9 @@
     --celeste300 : #023047;
     --naranja100: #ffb703;
     --naranja200: #fb8500;
-
+    --verde100: #83c5be;
+    --verde200: #006d77;
+    --verde300: #264653;
 }
 
 body{
@@ -98,8 +100,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .mensajeCli ,.mensajeEmp{
+    font-size: 1.2rem;
+    font-weight: 600;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding: 0 1rem 0 1rem;
+    border-bottom: 2px solid var(--verde200);
 }

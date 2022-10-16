@@ -126,7 +126,7 @@
         public function darDeAlta(){
             $mensaje = "";
             $con = conectarBD();
-            $sql = "insert into empleados (nombre,apellido,dni,direccion,telefono,sueldo,rol,antiguedad) values ('$this->nombre','$this->apellido',$this->dni,'$this->direccion'.$this->telefono,$this->sueldo,'$this->rol','$this->antiguedad')";
+            $sql = "insert into empleados (nombre,apellido,dni,direccion,telefono,sueldo,rol,antiguedad) values ('$this->nombre','$this->apellido',$this->dni,'$this->direccion',$this->telefono,$this->sueldo,'$this->rol','$this->antiguedad')";
             mysqli_query($con,$sql);
             if (mysqli_affected_rows($con) > 0){
                 $mensaje = "Se guardo un nuevo empleado";
