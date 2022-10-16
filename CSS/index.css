@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap');
 :root{
 
     --celeste100: #8ecae6;
@@ -8,13 +9,97 @@
 
 }
 
+body{
+    font-family: 'Montserrat';
+    margin: 0;
+    padding: 0;
+}
 
 .linkT{
     color: var(--naranja200);
     text-decoration: none;
 }
 
-body{
+.contenedorGeneral{
+    width: 100%;
+    height: 100%;
     background-color: var(--celeste300);
     color: var(--naranja100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.contenedorForms{
+    height: 80vh;
+    display: flex;
+}
+
+.contenedorClientes{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.clientesForm,.empleadosForm{
+    width: 20vw;
+    display: flex;
+    flex-direction: column;
+    line-height: 2;
+    gap: 2rem;
+}
+
+label{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+}
+
+input{
+    border: none;
+    outline: none;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    padding-left: .3rem;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.contenedorEmpleados{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn{
+    border: none;
+    width: 10rem;
+    height: 2rem;
+    background-color: var(--celeste100);
+    color: var(--celeste300);
+    font-weight: 800;
+    text-transform: lowercase;
+    transition: .3s;
+    border-radius: 6px;
+}
+
+.btn:hover{
+    background-color: var(--celeste200);
+    cursor: pointer;
+}
+
+.mensajeCli ,.mensajeEmp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

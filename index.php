@@ -49,84 +49,89 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <h1><a href="index.php" class="linkT">Administrador</a></h1>
-    <div class="contenedorForms">
-        <div class="contenedorClientes">
-            <h2>Alta de clientes</h2>
-            <form action="" method="POST">
-                <label for="clinom">
-                    Nombre
-                    <input type="text" name="clinom" id="clinom">
-                </label>
-                <label for="cliape">
-                    Apellido
-                    <input type="text" name="cliape" id="cliape">
-                </label>
-                <label for="clidni">
-                    DNI
-                    <input type="number" name="clidni" id="clidni">
-                </label>
-                <label for="clidire">
-                    Direccion
-                    <input type="text" name="clidire" id="clidire">
-                </label>
-                <label for="clitel">
-                    Telefono
-                    <input type="text" name="clitel" id="clitel">
-                </label>
-                <button>Cargar Cliente</button>
-                <div>
-                    <?php if($mensajeCli != ""){?>
-                        <p><?php echo $mensajeCli;?></p>
-                    <?php }?>
-                </div>
-            </form>
-        </div>
-        <div class="contenedorEmpleados">
-            <h2>Alta de empleados</h2>
-            <form action="" method="POST">
-                <label for="empnom">
-                    Nombre
-                    <input type="text" name="empnom" id="empnom">
-                </label>
-                <label for="empape">
-                    Apellido
-                    <input type="text" name="empape" id="empape">
-                </label>
-                <label for="empdni">
-                    DNI
-                    <input type="number" name="empdni" id="empdni">
-                </label>
-                <label for="empdire">
-                    Direccion
-                    <input type="text" name="empdire" id="empdire">
-                </label>
-                <label for="emptel">
-                    Telefono
-                    <input type="text" name="emptel" id="emptel">
-                </label>
-                <label for="empsueldo">
-                    Sueldo
-                    <input type="number" step="0.01" name="empsueldo" id="empsueldo">
-                </label>
+    <main class="contenedorGeneral">
+        <h1><a href="index.php" class="linkT">Administrador</a></h1>
+        <div class="contenedorForms">
+            <div class="contenedorClientes">
+                <h2>Alta de clientes</h2>
+                <form class="clientesForm" action="" method="POST">
+                    <label for="clinom">
+                        Nombre
+                        <input type="text" name="clinom" id="clinom">
+                    </label>
+                    <label for="cliape">
+                        Apellido
+                        <input type="text" name="cliape" id="cliape">
+                    </label>
+                    <label for="clidni">
+                        DNI
+                        <input type="number" name="clidni" id="clidni">
+                    </label>
+                    <label for="clidire">
+                        Direccion
+                        <input type="text" name="clidire" id="clidire">
+                    </label>
+                    <label for="clitel">
+                        Telefono
+                        <input type="text" name="clitel" id="clitel">
+                    </label>
+                    <button class="btn">Cargar Cliente</button>
+                    <div class="mensajeCli">
+                        <?php if($mensajeCli != ""){?>
+                            <p><?php echo $mensajeCli;?></p>
+                        <?php }?>
+                    </div>
+                </form>
+            </div>
+            <div class="contenedorEmpleados">
+                <h2>Alta de empleados</h2>
+                <form class="empleadosForm" action="" method="POST">
+                    <label for="empnom">
+                        Nombre
+                        <input type="text" name="empnom" id="empnom">
+                    </label>
+                    <label for="empape">
+                        Apellido
+                        <input type="text" name="empape" id="empape">
+                    </label>
+                    <label for="empdni">
+                        DNI
+                        <input type="number" name="empdni" id="empdni">
+                    </label>
+                    <label for="empdire">
+                        Direccion
+                        <input type="text" name="empdire" id="empdire">
+                    </label>
+                    <label for="emptel">
+                        Telefono
+                        <input type="text" name="emptel" id="emptel">
+                    </label>
+                    <label for="empsueldo">
+                        Sueldo
+                        <input type="number" step="0.01" name="empsueldo" id="empsueldo">
+                    </label>
+        
+                    <label for="emprol">
+                        Rol
+                        <select name="emprol" id="emprol">
+                            <option value="admin">Admin</option>
+                            <option value="empleado">empleado</option>
+                        </select>
+                    </label>
+                    <label for="empfecha">
+                        Fecha de ingreso
+                        <input type="date" name="empfecha" id="empfecha">
+                    </label>
     
-                <label for="emprol">Rol</label>
-                <select name="emprol" id="emprol">
-                    <option value="admin">Admin</option>
-                    <option value="empleado">empleado</option>
-                </select>
-
-                <label for="empfecha">
-                    Fecha de ingreso
-                    <input type="date" name="empfecha" id="empfecha">
-                </label>
-
-                <button>Cargar Empleado</button>
-                <?php if($mensajeEmp != ""){?>
-                    <p><?php echo $mensajeEmp;?></p>
-                <?php }?>
-            </form>
+                    <button class="btn">Cargar Empleado</button>
+                    <div class="mensajeEmp">
+                        <?php if($mensajeEmp != ""){?>
+                            <p><?php echo $mensajeEmp;?></p>
+                        <?php }?>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 </html>

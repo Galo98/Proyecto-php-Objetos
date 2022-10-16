@@ -72,9 +72,9 @@
             mysqli_query($con,$sql);
 
             if (mysqli_affected_rows($con)>0){
-                $mensaje = "se han guardado los registros";
+                $mensaje = "Se guardo un nuevo cliente";
             }else{
-                $mensaje = "no se guardaron los registros";
+                $mensaje = "No se pudo guardar al nuevo cliente";
             }
             return $mensaje;
         }
@@ -129,9 +129,9 @@
             $sql = "insert into empleados (nombre,apellido,dni,direccion,telefono,sueldo,rol,antiguedad) values ('$this->nombre','$this->apellido',$this->dni,'$this->direccion'.$this->telefono,$this->sueldo,'$this->rol','$this->antiguedad')";
             mysqli_query($con,$sql);
             if (mysqli_affected_rows($con) > 0){
-                $mensaje = "se han guardado los registros";
+                $mensaje = "Se guardo un nuevo empleado";
             }else{
-                $mensaje = "no se guardaron los registros";
+                $mensaje = "No se pudo guardar al nuevo empleado";
             }
             return $mensaje;
         }
