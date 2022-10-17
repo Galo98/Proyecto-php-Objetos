@@ -84,7 +84,9 @@
         }
 
         public static function listar(){
-            
+            $sql = "select * from clientes";
+            $resultado = mysqli_query(conectarBD(),$sql);
+            return $resultado;
         }
 
         public function saludar(){
@@ -141,16 +143,9 @@
         }
         
         public static function listar(){
-            $mensaje = "";
-            $con = conectarBD();
             $sql = "select * from empleados";
-            mysqli_query($con,$sql);
-            if (mysqli_affected_rows($con) > 0){
-                $mensaje = "Se guardo un nuevo empleado";
-            }else{
-                $mensaje = "No se pudo guardar al nuevo empleado";
-            }
-            return $mensaje;
+            $resultado = mysqli_query(conectarBD(),$sql);
+            return $resultado;
         }
 
         public function saludar(){
