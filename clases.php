@@ -141,7 +141,16 @@
         }
         
         public static function listar(){
-
+            $mensaje = "";
+            $con = conectarBD();
+            $sql = "select * from empleados";
+            mysqli_query($con,$sql);
+            if (mysqli_affected_rows($con) > 0){
+                $mensaje = "Se guardo un nuevo empleado";
+            }else{
+                $mensaje = "No se pudo guardar al nuevo empleado";
+            }
+            return $mensaje;
         }
 
         public function saludar(){

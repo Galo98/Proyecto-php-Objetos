@@ -1,6 +1,8 @@
-create database galoGuia2;
+create database galoGuia3;
 
-use galoGuia2;
+use galoGuia3;
+
+-- drop database galoGuia3;
 
 create table clientes(
 	nroCliente int auto_increment,
@@ -11,6 +13,8 @@ create table clientes(
     telefono int (10),
     primary key (nroCliente)
 );
+
+insert into clientes values (null,null,null,null,null,null);
 
 create table empleados(
 	nroEmpleado int auto_increment,
@@ -24,3 +28,9 @@ create table empleados(
     antiguedad date,
     primary key (nroEmpleado)
 );
+
+insert into empleados values (null,null,null,null,null,null,null,null,null);
+
+select * from clientes;
+select * from empleados;
+
