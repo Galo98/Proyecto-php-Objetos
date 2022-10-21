@@ -155,14 +155,12 @@
             
             (isset($_POST['listar']) && $_POST['listar'] !== "") ? $_POST['listar']::listar() : "";
 
-
-            (isset($_POST['rol']) && $_POST['rol'] === 1 && $_POST['buscador'] != '' ? Cliente::buscar($_POST['buscador']) : isset($_POST['rol']) && $_POST['rol'] >= 2) ? Empleado::buscar($_POST['buscador'],$rol[$_POST['rol']]) : "";
+            if(isset($_POST['rol']) && $_POST['rol'] == 1){
+                Cliente::buscar($_POST['buscador'],$_POST['rol']);
+            }else if(isset($_POST['rol']) && $_POST['rol'] >= 2){
+                Empleado::buscar($_POST['buscador'],$rol[$_POST['rol']]);
+            }
             
-            /* (isset($_POST['rol']) && $_POST['rol'] === 1 ? Cliente::buscar($_POST['buscador'],$_POST['rol']) : 
-            (isset($_POST['rol']) && $_POST['rol'] === 2)) ? Empleado::buscar($_POST['buscador'],$rol[$_POST['rol']]) : ""; */
-            
-            
-
             ?>
             </div>
         </section>

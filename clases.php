@@ -136,10 +136,15 @@
 
         public static function buscar($campo,$rol){
             $con = conectarBD();
-            $sqlAlfa = "select * from clientes where nombre like '%$campo%' or apellido like '%$campo%' or direccion like '%$campo%';";
-            $sqlNum = "select * from clientes where nroCliente like %$campo% or dni like %$campo% or telefono like %$campo%";
-
-            $resultado = (gettype($campo) === 'string') ? mysqli_query($con,$sqlAlfa) : mysqli_query($con,$sqlNum);
+            $rl = $rol;
+            if(gettype($campo) == 'integer'){
+                $sql = "select * from clientes where nroCliente like %$campo% or dni like %$campo% or telefono like %$campo%";
+            }else if(gettype($campo) == 'string'){
+                $sql = "select * from clientes where nombre like '%$campo%' or apellido like '%$campo%' or direccion like '%$campo%';";
+            }else{
+                
+            }
+            $resultado = mysqli_query($con,$sql);
             crearListadoCliente($resultado);
         }
 
@@ -208,11 +213,15 @@
 
         public static function buscar($campo,$rol){
             $con = conectarBD();
-            $sqlAlfa = "select * from empleados where nombre like '%$campo%' or apellido like '%$campo%' or direccion like '%$campo%' or antiguedad like '%$campo%' and rol='$rol';";
-
-            $sqlNum = "select * from empleados where nroEmpleado like %$campo% or dni like %$campo% or telefono like %$campo% or sueldo like %$campo%'";
-
-            $resultado = (gettype($campo) === 'string') ? mysqli_query($con,$sqlAlfa) : mysqli_query($con,$sqlNum);
+            if($campo == ""){
+                $sql = "select * from empleados where rol = '$rol';";
+            }else if(gettype($campo) === 'string'){
+                $sql = "select * from empleados where nombre like '%$campo%' or apellido like '%$campo%' or direccion like '%$campo%' or antiguedad like '%$campo%' and rol='$rol';";
+            } else if(gettype($campo) === 'integer'){
+                $sql = "select * from empleados where nroEmpleado like %$campo% or dni like %$campo% or telefono like %$campo% or sueldo like %$campo%'";
+            } 
+            $resultado = mysqli_query($con,$sql);
+            
             crearListadoEmpleados($resultado);
         }
         
