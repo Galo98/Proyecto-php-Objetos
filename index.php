@@ -5,32 +5,21 @@
     $listado = 0; 
     $rol = ['','cliente','empleado','admin'];
     if(isset($_POST['clinom']) && $_POST['clinom'] != ""){
-        $clinom = $_POST['clinom'];
-        $cliape = $_POST['cliape'];
-        $clidni = $_POST['clidni'];
-        $clidire = $_POST['clidire'];
-        $clitel = $_POST['clitel'];
         $queryid = "select * from clientes order by nroCliente desc limit 1;";
         $sql = mysqli_query(conectarBD(),$queryid);
         $cliID = mysqli_fetch_row($sql);
         $cliID[0]++;
-        $cliente = new Cliente($cliID,$clinom,$cliape,$clidni,$clidire,$clitel);
+        $cliente = new Cliente($cliID,$_POST['clinom'],$_POST['cliape'],$_POST['clidni'],$_POST['clidire'],$_POST['clitel']);
         $mensajeCli = $cliente->darDeAlta();
+        // $cliente->mostrarDatos();
     }else if(isset($_POST['empnom']) && $_POST['empnom'] != ""){
-        $empnom = $_POST['empnom'];
-        $empape = $_POST['empape'];
-        $empdni = $_POST['empdni'];
-        $empdire = $_POST['empdire'];
-        $emptel = $_POST['emptel'];
-        $empsueldo = $_POST['empsueldo'];
-        $emprol = $_POST['emprol'];
-        $empfecha = $_POST['empfecha'];
         $queryid = "select * from empleados order by nroEmpleado desc limit 1;";
         $sql = mysqli_query(conectarBD(),$queryid);
         $empID = mysqli_fetch_row($sql);
         $empID[0]++;
-        $empleado = new Empleado ($empID,$empnom,$empape,$empdni,$empdire,$emptel,$empsueldo,$emprol,$empfecha);
+        $empleado = new Empleado ($empID,$_POST['empnom'],$_POST['empape'],$_POST['empdni'],$_POST['empdire'],$_POST['emptel'],$_POST['empsueldo'],$_POST['emprol'],$_POST['empfecha']);
         $mensajeEmp = $empleado->darDeAlta();
+        // $empleado->mostrarDatos();
     }
 ?>
 <!DOCTYPE html>
