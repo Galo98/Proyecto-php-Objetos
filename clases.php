@@ -238,6 +238,5 @@
     }
 #endregion
 
-/* (isset($_POST['rol']) && $_POST['rol'] === 1 ? Cliente::buscar($_POST['buscador'],$_POST['rol']) : 
-            (isset($_POST['rol']) && $_POST['rol'] === 2) ) ? Empleado::buscar($_POST['buscador'],$rol[$_POST['rol']]) : ""; */
+/* (isset($_POST['rol']) && $_POST['rol'] === 1 ? Cliente::buscar($_POST['buscador'],$_POST['rol']) : (isset($_POST['rol']) && $_POST['rol'] === 2) ) ? Empleado::buscar($_POST['buscador'],$rol[$_POST['rol']]) : ""; */
 ?>
