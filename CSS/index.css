@@ -122,3 +122,28 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     gap: 1.5rem;
 }
+
+#listado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+table{
+    margin-top: 1rem;
+    border-collapse: collapse;
+    border: 1px solid var(--celeste100);
+    font-size: 1.4678rem;
+}
+
+th{
+    padding: .3rem;
+    text-align: center;
+    border: 1px solid var(--celeste100);
+}
+
+td{
+    padding: .3rem;
+    text-align: center;
+    border: 1px solid var(--celeste100);
+}

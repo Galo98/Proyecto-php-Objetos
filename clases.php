@@ -1,5 +1,56 @@
 <?php
 
+    function crearListadoCliente($datosBD){?>
+        <table>
+            <tr>
+                <th>Nro Cliente</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>DNI</th>
+                <th>Direccion</th>
+                <th>Telefono</th>
+            </tr>
+            <?php while($dato = mysqli_fetch_assoc($datosBD)){?>
+            <tr>
+                <td><?php echo $dato['nroCliente'];?></td>
+                <td><?php echo $dato['nombre'];?></td>
+                <td><?php echo $dato['apellido'];?></td>
+                <td><?php echo $dato['dni'];?></td>
+                <td><?php echo $dato['direccion'];?></td>
+                <td><?php echo $dato['telefono'];?></td>
+            </tr>
+            <?php }?>
+        </table>
+    <?php }
+
+    function crearListadoEmpleados($datosBD){ ?>
+        <table>
+                <tr>
+                    <th>Nro Empleado</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>DNI</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Sueldo</th>
+                    <th>Rol</th>
+                    <th>Antiguedad</th>
+                </tr>
+                <?php while($dato = mysqli_fetch_assoc($datosBD)){?>
+                <tr>
+                    <td><?php echo $dato['nroEmpleado'];?></td>
+                    <td><?php echo $dato['nombre'];?></td>
+                    <td><?php echo $dato['apellido'];?></td>
+                    <td><?php echo $dato['dni'];?></td>
+                    <td><?php echo $dato['direccion'];?></td>
+                    <td><?php echo $dato['telefono'];?></td>
+                    <td><?php echo $dato['sueldo'];?></td>
+                    <td><?php echo $dato['rol'];?></td>
+                    <td><?php echo $dato['antiguedad'];?></td>
+                </tr>
+                <?php }?>
+                </table>
+    <?php }
 
     function conectarBD(){
         $serv="localhost";
@@ -33,7 +84,7 @@
 
         public abstract function darDeAlta();
 
-        public abstract static function buscar();
+        public abstract static function buscar($campo,$rol);
 
         protected function saludar(){
             echo 'Hola soy ' .$this->nombre .' ' .$this->apellido .' y soy de la clase ' .get_class($this);
@@ -62,7 +113,11 @@
         // Metodos
 
         public function mostrarDatos(){
-
+            echo "Nombre: " .$this->nombre;
+            echo "Apellido: " .$this->apellido;
+            echo "DNI: " .$this->dni;
+            echo "Direccion: " .$this.direccion;
+            echo "Telefono: " .$this.telefono;
         }
 
         public function darDeAlta(){
@@ -79,14 +134,19 @@
             return $mensaje;
         }
 
-        public static function buscar(){
+        public static function buscar($campo,$rol){
+            $con = conectarBD();
+            $sqlAlfa = "select * from clientes where nombre like '%$campo%' or apellido like '%$campo%' or direccion like '%$campo%';";
+            $sqlNum = "select * from clientes where nroCliente like %$campo% or dni like %$campo% or telefono like %$campo%";
 
+            $resultado = (gettype($campo) === 'string') ? mysqli_query($con,$sqlAlfa) : mysqli_query($con,$sqlNum);
+            crearListadoCliente($resultado);
         }
 
         public static function listar(){
             $sql = "select * from clientes";
             $resultado = mysqli_query(conectarBD(),$sql);
-            return $resultado;
+            crearListadoCliente($resultado);
         }
 
         public function saludar(){
@@ -122,7 +182,15 @@
         // Metodos
 
         public function mostrarDatos(){
-
+            echo "NroEmpleado: " .$this->nroEmpleado;
+            echo "Nombre: " .$this->nombre;
+            echo "Apellido: " .$this->apellido;
+            echo "DNI: " .$this->dni;
+            echo "Direccion: " .$this.direccion;
+            echo "Telefono: " .$this.telefono;
+            echo "Sueldo: " .$this.sueldo;
+            echo "Rol: " .$this.rol;
+            echo "Antiguedad: " .$this->antiguedad;
         }
 
         public function darDeAlta(){
@@ -138,14 +206,21 @@
             return $mensaje;
         }
 
-        public static function buscar(){
+        public static function buscar($campo,$rol){
+            $con = conectarBD();
+            $sqlAlfa = "select * from empleados where nombre like '%$campo%' or apellido like '%$campo%' or direccion like '%$campo%' or antiguedad like '%$campo%' and rol='$rol';";
 
+            $sqlNum = "select * from empleados where nroEmpleado like %$campo% or dni like %$campo% or telefono like %$campo% or sueldo like %$campo%'";
+
+            $resultado = (gettype($campo) === 'string') ? mysqli_query($con,$sqlAlfa) : mysqli_query($con,$sqlNum);
+            crearListadoEmpleados($resultado);
         }
         
         public static function listar(){
             $sql = "select * from empleados";
             $resultado = mysqli_query(conectarBD(),$sql);
-            return $resultado;
+            
+            crearListadoEmpleados($resultado);
         }
 
         public function saludar(){
@@ -154,5 +229,6 @@
     }
 #endregion
 
-
+/* (isset($_POST['rol']) && $_POST['rol'] === 1 ? Cliente::buscar($_POST['buscador'],$_POST['rol']) : 
+            (isset($_POST['rol']) && $_POST['rol'] === 2) ) ? Empleado::buscar($_POST['buscador'],$rol[$_POST['rol']]) : ""; */
 ?>
