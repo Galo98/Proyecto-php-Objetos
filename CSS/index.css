@@ -17,6 +17,24 @@ body{
     padding: 0;
 }
 
+body::-webkit-scrollbar {
+    width: 12px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--celeste300);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--naranja200);
+    /* color of the scroll thumb */
+    border-radius: 20px;
+    /* roundness of the scroll thumb */
+    /* creates padding around scroll thumb */
+}
+
 .linkT{
     color: var(--naranja200);
     text-decoration: none;
@@ -147,3 +165,4 @@ td{
     text-align: center;
     border: 1px solid var(--celeste100);
 }
+
