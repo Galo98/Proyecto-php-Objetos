@@ -40,23 +40,23 @@
                 <form class="clientesForm" action="" method="POST">
                     <label for="clinom">
                         Nombre
-                        <input type="text" name="clinom" id="clinom">
+                        <input type="text" name="clinom" id="clinom" required placeholder="Nombre">
                     </label>
                     <label for="cliape">
                         Apellido
-                        <input type="text" name="cliape" id="cliape">
+                        <input type="text" name="cliape" id="cliape" required placeholder="Apellido">
                     </label>
                     <label for="clidni">
                         DNI
-                        <input type="number" maxlength="8"  pattern="[0-9]{10}" name="clidni" id="clidni">
+                        <input type="number" maxlength="8"  pattern="[0-9]{10}" name="clidni" id="clidni" required placeholder="24987987">
                     </label>
                     <label for="clidire">
                         Direccion
-                        <input type="text" name="clidire" id="clidire">
+                        <input type="text" name="clidire" id="clidire" required placeholder="Calle 1234">
                     </label>
                     <label for="clitel">
                         Telefono
-                        <input type="text" maxlength="10"  pattern="[0-9]{10}" name="clitel" id="clitel">
+                        <input type="number" minlength="8" maxlength="10"  pattern="[0-9]{10}" name="clitel" id="clitel" required placeholder="1512341234">
                     </label>
                     <button class="btn">Cargar Cliente</button>
                         <?php if($mensajeCli != ""){?>
@@ -72,27 +72,27 @@
                 <form class="empleadosForm" action="" method="POST">
                     <label for="empnom">
                         Nombre
-                        <input type="text" name="empnom" id="empnom">
+                        <input type="text" name="empnom" id="empnom" required placeholder="Nombre">
                     </label>
                     <label for="empape">
                         Apellido
-                        <input type="text" name="empape" id="empape">
+                        <input type="text" name="empape" id="empape" required placeholder="Apellido">
                     </label>
                     <label for="empdni">
                         DNI
-                        <input type="number" maxlength="8" pattern="[0-9]{10}" name="empdni" id="empdni">
+                        <input type="number" maxlength="8" pattern="[0-9]{10}" name="empdni" id="empdni" required placeholder="24987987">
                     </label>
                     <label for="empdire">
                         Direccion
-                        <input type="text" name="empdire" id="empdire">
+                        <input type="text" name="empdire" id="empdire" required placeholder="Calle 1234">
                     </label>
                     <label for="emptel">
                         Telefono
-                        <input type="text" maxlength="10" pattern="[0-9]{10}" name="emptel" id="emptel">
+                        <input type="number" minlength="8" maxlength="10" pattern="[0-9]{10}" name="emptel" id="emptel" required placeholder="1512341234">
                     </label>
                     <label for="empsueldo">
                         Sueldo
-                        <input type="number" maxlength="9" step="0.01" name="empsueldo" id="empsueldo">
+                        <input type="number" maxlength="9" step="0.01" name="empsueldo" id="empsueldo" required placeholder="00000.00">
                     </label>
                     <label for="emprol">
                         Rol
@@ -116,9 +116,9 @@
         </div>
         <section class="contenedorListas">
             <h1>Listados</h1>
-            <form action="" method="POST" class="contenedorBuscador">
+            <form action="index.php#listado" method="POST" class="contenedorBuscador">
                 <label class="menuListas">
-                    <input type="text" step="0.01" name="buscador">
+                    <input type="text" placeholder="Nombre o ID" name="buscador">
                     <select name="rol">
                         <option value="1">cliente</option>
                         <option value="2">empleado</option>
